@@ -1,9 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-
-import 'package:mobi_app_2/util/logging/logger.dart';
-import 'package:mobi_app_2/util/logging/logging.dart';
+import 'package:logsnack/util/logging/logger.dart';
 
 /// [Logger] implementation that is intended to be used for development and
 /// testing builds.

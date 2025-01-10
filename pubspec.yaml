@@ -1,0 +1,64 @@
+name: logsnack
+description: "Make it easier to read logs"
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 0.0.1+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Basic reactive programming extensions to Dart's inbuilt Streams
+  # Apache license v2
+  rxdart: ^0.28.0
+
+  # Provides collection access with optionals, like `.firstOrNull`
+  # ! BSD-3 license !
+  collection: ^1.19.1
+
+  # localization: Provide translated string asset, locale-dependent number/date/.. formatting
+  # ! BSD-3 license !
+  intl: ^0.20.1
+  intl_utils: ^2.8.7
+  flutter_localizations:
+    sdk: flutter
+
+  # Fundamental dependency injection mechanism in the app: Providers are added to the widget
+  # context, and can be accessed simply by calling `Provider<XX>.of(context)` given the class.
+  # MIT license
+  provider: ^6.1.2
+
+
+dependency_overrides:
+  # Forced down to 0.19.0 as 0.19.1 is not yet supported by the Flutter SDK
+  # TODO Check with every Flutter update
+  collection: ^1.19.0
+
+  # Forced down to 0.19.0 as 0.20.1 is not yet supported by the Flutter SDK
+  # TODO Check with every Flutter update
+  intl: 0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Keep that code clean
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+
+  fonts:
+    - family: JetBrainsMono
+      fonts:
+        - asset: assets/fonts/JetBrainsMono-Regular.ttf
+        - asset: assets/fonts/JetBrainsMono-Thin.ttf
+          weight: 100 
+        - asset: assets/fonts/JetBrainsMono-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/JetBrainsMono-Bold.ttf
+          weight: 700

@@ -4,8 +4,8 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:mobi_app_2/util/extensions/primitive_extensions.dart';
-import 'package:mobi_app_2/util/logging/logging.dart';
+import 'package:logsnack/util/logging/logging.dart';
+import 'package:logsnack/util/primitive_extensions.dart';
 
 ///
 /// Execute some code and return the result of the block. Allows for code
@@ -225,7 +225,7 @@ extension ScopeFunctions<T> on T {
   ///
   /// dart```
   ///   String? nameCandidate = '';
-  ///   String name = nameCandidate?.takeIf((s) => s.isNotEmpty) ?? '<MISSING>';
+  ///   String name = nameCandidate?.takeIf((s) => s.isNotEmpty) ?? 'MISSING';
   /// ```
   T? takeIf(bool Function(T it) check) {
     return check(this) ? this : null;

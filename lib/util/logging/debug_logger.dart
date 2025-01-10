@@ -1,7 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:intl/intl.dart';
-import 'package:mobi_app_2/util/logging/logger.dart';
+import 'package:logsnack/util/logging/logger.dart';
 
+///
 /// [Logger] implementation intended for debug builds. Will provide additional
 /// information about log messages (e.g.: where a log message was written) and
 /// logs the result to console.
@@ -10,7 +11,9 @@ import 'package:mobi_app_2/util/logging/logger.dart';
 /// debug builds.
 ///
 /// TIP: Use a console highlighting plugin like "Grep Console" for Intellij IDEs
-/// for a more glanceable and comfortable logging experience.
+/// for a more glanceable and comfortable logging experience while the app is
+/// running.
+///
 class DebugLogger extends Logger {
   final DateFormat _timeStampFormatter = DateFormat.Hms().addPattern('S', '_');
 

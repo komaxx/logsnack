@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobi_app_2/util/logging/logging.dart';
-import 'package:mobi_app_2/util/system.dart';
+import 'package:logsnack/util/logging/logging.dart';
 
 ///
 /// Defines one navigation transaction from one screen to another, encapsulating
@@ -49,7 +47,7 @@ class FlowNavigator extends StatelessWidget {
   final WidgetBuilder startBuilder;
   final navigatorKey = GlobalKey<NavigatorState>();
 
-  FlowNavigator({required this.startBuilder});
+  FlowNavigator({super.key, required this.startBuilder});
 
   @override
   Widget build(BuildContext context) => PopScope(
@@ -57,7 +55,10 @@ class FlowNavigator extends StatelessWidget {
         child: Navigator(
           initialRoute: '',
           key: navigatorKey,
-          onGenerateRoute: (settings) => generateRoute(settings, startBuilder),
+          onGenerateRoute: (settings) => generateRoute(
+            settings,
+            startBuilder: startBuilder,
+          ),
         ),
       );
 
@@ -71,9 +72,9 @@ class FlowNavigator extends StatelessWidget {
   /// [startBuilder] will be returned instead.
   ///
   static Route generateRoute(
-    RouteSettings settings,
-    WidgetBuilder startBuilder,
-  ) {
+    RouteSettings settings, {
+    required WidgetBuilder startBuilder,
+  }) {
     if (settings.arguments is Navigation) {
       final navigation = settings.arguments as Navigation;
       L.ua('-Navigating- $navigation');
@@ -99,10 +100,6 @@ class FlowNavigator extends StatelessWidget {
       );
     }
 
-    if (System.isAndroid) {
-      return MaterialPageRoute(builder: builder);
-    } else {
-      return CupertinoPageRoute(builder: builder);
-    }
+    return MaterialPageRoute(builder: builder);
   }
 }

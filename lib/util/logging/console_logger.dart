@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
-import 'package:logsnack/util/logger.dart';
+import 'package:logsnack/util/logging/logger.dart';
+import 'package:logsnack/util/primitive_extensions.dart';
 
 ///
 /// Simple [Logger] implementation that just prints everything to the console

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:logsnack/ui/main_lines_view_model.dart';
+import 'package:logsnack/ui/main/lines/main_lines_view_model.dart';
+import 'package:logsnack/ui/main/lines/main_lines_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,6 +19,15 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold
+    (
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: MainLinesWidget(viewModel: linesViewModel),
+          ),
+        ],
+      ),
+    );
   }
 }

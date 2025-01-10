@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:logsnack/util/logger.dart';
-import 'package:mobi_app_2/util/logging/console_logger.dart';
-import 'package:mobi_app_2/util/logging/file/file_logger.dart';
-import 'package:mobi_app_2/util/logging/logger.dart';
+import 'package:logsnack/util/logging/debug_logger.dart';
+import 'package:logsnack/util/logging/logger.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Central logging class.
@@ -26,8 +24,7 @@ class L {
   /// Manipulation at runtime is not supported! It's recommended to call [setUp]
   /// during initialisation of the app.
   static List<Logger> _loggers = [
-    ConsoleLogger(),
-    if (!kIsWeb) FileLogger(),
+    DebugLogger(),
   ];
 
   /// The minimum log level that will be logged. Logging calls with a log level
@@ -84,7 +81,9 @@ class L {
       return;
     }
 
-    loggers.forEach((logger) => logger.log(level, message ?? '_'));
+    for (var logger in loggers) {
+      logger.log(level, message ?? '_');
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:collection/collection.dart';
-import 'package:mobi_app_2/util/logging/logging.dart';
+import 'package:logsnack/util/logging/logging.dart';
 
 extension MapExtension<T> on Map<T, dynamic> {
   ///

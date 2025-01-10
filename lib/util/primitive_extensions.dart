@@ -8,10 +8,9 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart' as crypto;
-import 'package:mobi_app_2/util/extensions/collection_extensions.dart';
-import 'package:mobi_app_2/util/logging/logging.dart';
-import 'package:mobi_app_2/util/scope_functions.dart';
+import 'package:logsnack/util/collection_extensions.dart';
+import 'package:logsnack/util/logging/logging.dart';
+import 'package:logsnack/util/scope_functions.dart';
 
 extension AngleConverting on num {
   double radiansToDegrees() => (this * 180.0) / pi;
@@ -50,17 +49,6 @@ extension SafeSubstring on String {
     if (this.length < length) return this;
     return substring(this.length - length);
   }
-}
-
-extension Hashing on String {
-  ///
-  /// Creates a simple MD5 hash and returns it converted to a String.
-  /// This should be used for convenience only, e.g., to more easily compare
-  /// whether Strings are different from each other (think: long JWTs).
-  ///
-  /// Should NOT be used for ANYTHING security related!
-  ///
-  String getMd5Hash() => crypto.md5.convert(utf8.encode(this)).toString();
 }
 
 extension Trimming on String {

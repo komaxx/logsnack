@@ -9,15 +9,21 @@ class MainLinesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: viewModel.lines.length,
-      itemBuilder: (context, index) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 1.0),
-        child: Text(
-          '${viewModel.lines[index].text}',
-          style: TextStyle(fontFamily: 'JetBrainsMono'),
+        itemCount: viewModel.lines.length,
+        prototypeItem: Text(
+          'ProtoType|',
+          maxLines: 1,
+          style: TextStyle(
+              fontFamily: 'JetBrainsMono', fontSize: 11, color: Colors.white),
         ),
-      );
-    });
+        itemBuilder: (context, index) {
+          return SelectableText(
+            '${viewModel.lines[index].text}',
+            maxLines: 1,
+            scrollPhysics: ClampingScrollPhysics(),
+            style: TextStyle(
+                fontFamily: 'JetBrainsMono', fontSize: 11, color: Colors.white),
+          );
+        });
   }
 }

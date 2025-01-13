@@ -18,11 +18,14 @@ class MainLinesWidget extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return SelectableText(
-            '${viewModel.lines[index].text}',
+            '$index ${viewModel.lines[index].text}',
             maxLines: 1,
             scrollPhysics: ClampingScrollPhysics(),
             style: TextStyle(
-                fontFamily: 'JetBrainsMono', fontSize: 11, color: Colors.white),
+              fontFamily: 'JetBrainsMono',
+              fontSize: index % 5 == 0 ? 8 : 11,
+              color: Colors.white,
+            ),
           );
         });
   }

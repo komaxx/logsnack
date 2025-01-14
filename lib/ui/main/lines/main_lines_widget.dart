@@ -10,12 +10,12 @@ class MainLinesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: viewModel.lines.length,
-        prototypeItem: Text(
-          'ProtoType|',
-          maxLines: 1,
-          style: TextStyle(
-              fontFamily: 'JetBrainsMono', fontSize: 11, color: Colors.white),
-        ),
+        // prototypeItem: Text(
+        //   'ProtoType|',
+        //   maxLines: 1,
+        //   style: TextStyle(
+        //       fontFamily: 'JetBrainsMono', fontSize: 11, color: Colors.white),
+        // ),
         itemBuilder: (context, index) {
           return SelectableText(
             '$index ${viewModel.lines[index].text}',
@@ -23,7 +23,7 @@ class MainLinesWidget extends StatelessWidget {
             scrollPhysics: ClampingScrollPhysics(),
             style: TextStyle(
               fontFamily: 'JetBrainsMono',
-              fontSize: index % 5 == 0 ? 8 : 11,
+              fontSize: 7 + index % 6,
               color: Colors.white,
             ),
           );
